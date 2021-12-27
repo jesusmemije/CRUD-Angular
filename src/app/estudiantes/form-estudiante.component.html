@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="card-body">
+        <h5 class="card-title">{{ titulo }}</h5>
+        <form>
+            <div class="form-group row">
+                <label for="nombre" class="col-form-label col-sm-2">Nombres</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nombres" [(ngModel)]="estudiante.nombres">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="apellidos" class="col-form-label col-sm-2">Apellidos</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="apellidos" [(ngModel)]="estudiante.apellidos">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="email" class="col-form-label col-sm-2">E-Mail</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="email" [(ngModel)]="estudiante.email">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nota" class="col-form-label col-sm-2">Nota</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="nota" [(ngModel)]="estudiante.nota">
+                </div>
+            </div>
+
+            <button class="btn btn-success" role="button" (click)='create()' *ngIf="!estudiante.id else elseBlock">Registrar</button>
+            
+            <ng-template #elseBlock>
+                <button class="btn btn-success" role="button" (click)='update()'>Actualizar</button>
+            </ng-template>
+            
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>{{ titulo }}</h1>
+  <h2>{{ prueba }}</h2>
+
+  <button class="btn btn-info" type="button" [routerLink] = "['/estudiantes/form']">Nuevo estudiante</button>
+
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Email</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantes">
+        <th scope="row">{{ estudiante.id }}</th>
+        <td>{{ estudiante.nombres }}</td>
+        <td>{{ estudiante.nombres }}</td>
+        <td>{{ estudiante.email }}</td>
+        <td>{{ estudiante.nota }}</td>
+        <td><button type="button" class="btn btn-warning" [routerLink]="['/estudiantes/form', estudiante.id]" >Editar</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="delete(estudiante)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
